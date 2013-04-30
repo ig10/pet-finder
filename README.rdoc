@@ -1,0 +1,9 @@
+Pet Finder
+==========
+
+Small app to Find Pets in a city
+
+==========
+
+Created for DuocUC - ECommerce Course
+
