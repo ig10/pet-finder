@@ -13,3 +13,9 @@
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'usuario', 'usuarios'
+  inflect.irregular 'raza', 'razas'
+  inflect.irregular 'mascota', 'mascotas'
+end
