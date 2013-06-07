@@ -13,7 +13,7 @@ var Home = (function(){
       $j.ajax({
         url: '/nuevo_usuario',
         type: 'GET',
-        data: {tipo: 'usuario'},
+        data: {perfil: 'persona'},
         success: function(data) {
           $j('#container').append(data);
           $j('#modal_registro').modal();
