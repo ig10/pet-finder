@@ -16,7 +16,7 @@ var Home = (function(){
         data: {perfil: 'persona'},
         success: function(data) {
           $j('#container').append(data);
-          $j('#modal_registro').modal();
+          $j('#modal_registro').modal({keyboard: false, backdrop: 'static'});
           configurar_registro();
         },
         error: function() {
