@@ -1,0 +1,19 @@
+<div id="modal_registro" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Registro</h3>
+  </div>
+  <%= form_for :usuario, html: {id: "formulario_registro", method: 'post'} do |f| %>
+    <div class="modal-body">
+      <%= f.email_field :correo_electronico, {placeholder: 'Correo electrónico'} %><br>
+      <%= f.password_field :password, {placeholder: 'Contraseña'}%>
+      <%= f.hidden_field :perfil, value: params[:perfil] %>
+    </div>
+    <div class="modal-footer">
+     <%= f.submit "Registrar", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+
+

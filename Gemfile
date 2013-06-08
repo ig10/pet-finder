@@ -10,12 +10,12 @@ gem 'will_paginate'
 
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'compass-rails'
+  gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'bootstrap-sass'
-  gem 'compass-rails'
 
   #gem "jquery-ui-bootstrap-rails" Problemas con version de bootstrap y jquery
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
