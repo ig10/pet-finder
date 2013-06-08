@@ -1,6 +1,7 @@
 class PublicController < ApplicationController
 
   def index
+    @session = true
   end
 
   def nuevo_usuario
