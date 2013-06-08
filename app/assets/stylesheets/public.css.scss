@@ -1,3 +1,87 @@
+@import "compass/css3";
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300");
+
+body{
+  background: url('backgrounds/home.jpg') #000 top center fixed no-repeat;
+  background-size: 120%;
+  font-family: 'Open Sans',sans-serif;
+}
+
 #modal_registro{
-  height: 240px;
+  height: 220px;
+  width: 400px;
+  left: 55%;
+}
+
+#home-head{
+  height: 550px;
+  border-bottom: 5px solid rgb(0, 77, 128);
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 50px;
+  text-align: center;
+  line-height: 55px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+  margin-bottom: 30px;
+}
+
+#container{
+  background-color: white;
+  padding: 30px;
+}
+
+#intro{
+  margin-top: 100px;
+  text-align: center;
+  min-height: 400px;
+  padding: 0 0 50px;
+  h1{
+    color: #fff;
+    font-family: 'Open Sans',sans-serif;
+  }
+  p{
+    padding: 15px 0;
+    color: #fff;
+  }
+}
+
+.center{
+  float: none;
+  margin: 0 auto;
+}
+
+.btn-xlarge {
+  padding: 20px 40px;
+  font-size: 25px;
+}
+
+.btn-blanco{
+  background-color: rgb(246,248,249); // Old browsers
+  @include filter-gradient(#f6f8f9, #f5f7f9, vertical); // IE6-9
+  @include background-image(linear-gradient(top, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%));
+  &.btn:hover, &.btn:focus {
+    background-color: rgb(246,248,249); // Old browsers
+    @include filter-gradient(#f6f8f9, #f5f7f9, vertical); // IE6-9
+    @include background-image(linear-gradient(bottom, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 68%,rgba(245,247,249,1) 100%));
+  }
+}
+
+.span6{
+  width: 570px;
+}
+
+.proceso{
+  width: 1300px;
+  margin-left: -150px;
+}
+
+.thumbnail{
+  text-align: center;
+  border: none;
+  img{
+    width:152px;
+    height:136px;
+  }
 }
