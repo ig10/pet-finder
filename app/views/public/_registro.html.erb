@@ -5,10 +5,8 @@
   </div>
   <%= form_for :usuario, html: {id: "formulario_registro", method: 'post'} do |f| %>
     <div class="modal-body">
-      <%= f.label :correo_electronico, "Correo Electrónico" %>
-      <%= f.email_field :correo_electronico %>
-      <%= f.label :password, "Contraseña" %>
-      <%= f.password_field :password %>
+      <%= f.email_field :correo_electronico, {placeholder: 'Correo electrónico'} %><br>
+      <%= f.password_field :password, {placeholder: 'Contraseña'}%>
       <%= f.hidden_field :perfil, value: params[:perfil] %>
     </div>
     <div class="modal-footer">
