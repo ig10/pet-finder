@@ -8,14 +8,14 @@ var Home = (function(){
       This function provides the Modal window
       configuration for Register
     */
-    $j('#registro').on('click',function(e){
+    $j('.registro').on('click',function(e){
       e.preventDefault();
       $j.ajax({
         url: '/nuevo_usuario',
         type: 'GET',
         data: {perfil: 'persona'},
         success: function(data) {
-          $j('#container').append(data);
+          $j('.main-container').append(data);
           $j('#modal_registro').modal({keyboard: false, backdrop: 'static'});
           configurar_registro();
         },
