@@ -11,7 +11,7 @@
       <%= hidden_field_tag :tipo_ingreso, params[:tipo_ingreso] %>
     </div>
     <div class="modal-footer">
-     <%= f.submit "Registro", class: "btn btn-primary" %>
+     <%= f.submit registro_login(params[:tipo_ingreso]), class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
