@@ -8,7 +8,7 @@
         </a>
         <a class="brand scroller" data-section="html" href="index.html">PetFinder</a>
       <div class="nav-collapse collapse">
-        <% if @session %>
+        <% unless @session %>
           <ul class="nav pull-right">
             <li><a href="#"  class="login" data-tipo-ingreso="login">Login</a></li>
           </ul>
@@ -21,7 +21,8 @@
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mis mensajes (1)</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mis mascotas</a></li>
                 <li role="presentation" class="divider"></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cerrar Sesión</a></li>
+
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Cerrar Sesión</a></li>
               </ul>
             </li>
           </ul>
