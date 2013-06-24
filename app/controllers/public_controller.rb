@@ -1,14 +1,15 @@
 class PublicController < ApplicationController
 
   def index
-    @session = true
+    @session = session[:usuario_id].present?
+    redirect_to controller: :buscar, action: :index if @session
   end
 
   def tipo_ingreso
     unless request.post?
       render partial: 'registro-login', locals: {perfil: params[:perfil], tipo_ingreso: params[:tipo_ingreso]}
     else
-      redirect_to action: params[:tipo_ingreso], usuario: params[:usuario]      
+      redirect_to action: params[:tipo_ingreso], usuario: params[:usuario]
     end
   end
 
@@ -23,18 +24,18 @@ class PublicController < ApplicationController
   end
 
   def login
-    usuario = true
-    if params[:usuario].is_a?(Hash)
-      usuario = Usuario.autenticar(params[:usuario])
-    end 
-    unless usuario 
+    usuario = params[:usuario].is_a?(Hash) ? Usuario.autenticar(params[:usuario]) : params[:usuario]
+    unless usuario
       flash[:error] = "Usuario no encontrado"
       redirect_to action: :index
     end
-    Usuario.crear_session(usuario) 
-    redirect_to action: :buscar 
+    Usuario.crear_session(session,usuario)
+    redirect_to controller: :buscar, action: :index
   end
 
-  def buscar
+  def logout
+    Usuario.expirar_session(session)
+    redirect_to :index
   end
+
 end
