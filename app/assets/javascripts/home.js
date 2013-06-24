@@ -21,32 +21,12 @@ var Home = (function(){
           $j('#modal_registro').modal({keyboard: false, backdrop: 'static'}).on('hidden', function(){
             $j(this).remove();
           });
-          configurar_registro();
         },
         error: function() {
           console.log("ERROR!");
         }
       });
 
-    });
-  }
-
-  function configurar_registro(){
-    /*
-      This function, configures the Send
-      method of the Register form in the
-      Modal window.
-    */
-    $j('#formulario_registro').on('submit',function(e){
-      e.preventDefault();
-      var form = $j(this);
-      $j.post(form.attr('action'), form.serialize(), function(data){
-        if(data == "OK"){
-          $j('#modal_registro').modal('hide');
-        }else{
-          $j('#modal_registro').append("ERROR!");
-        }
-      });
     });
   }
 
