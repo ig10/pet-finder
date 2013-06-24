@@ -17,16 +17,20 @@ class Usuario < ActiveRecord::Base
   end
 
   def self.autenticar(usuario)
-    Usuario.where(correo_electronico: usuario[:correo_electronico], 
-    							password: Usuario.encriptar_password(usuario[:password])).count > 0
+    self.where(correo_electronico: usuario[:correo_electronico],
+                password: self.encriptar_password(usuario[:password])).first.id
   end
 
-  def self.crear_session(usuario)
-  	session[:usuario] = usuario
+  def self.crear_session(sesion,usuario)
+    usuario = self.find(usuario)
+    sesion[:usuario_id] = usuario.id
+    sesion[:usuario_perfil] = usuario.perfil
   end
 
-  def self.expirar_session
-  	session[:usuario] = nil
+  def self.expirar_session(session)
+    session[:usuario_id] = nil
+    session[:usuario_perfil] = nil
   end
 
 end
+
