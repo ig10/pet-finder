@@ -9,15 +9,24 @@ class Usuario < ActiveRecord::Base
   before_save :formatear_password, if: Proc.new{|p| p.correo_electronico.present?}
 
   def formatear_password
-    self.password = encriptar_password(self.password)
+    self.password = Usuario.encriptar_password(self.password)
   end
 
   def self.encriptar_password(password)
     Digest::SHA1.hexdigest(password)
   end
 
-  def self.autenticar(correo_electronico, password)
-    Usuario.where(correo_electronico: correo_electronico, password: encriptar_password(password)).count > 0
+  def self.autenticar(usuario)
+    Usuario.where(correo_electronico: usuario[:correo_electronico], 
+    							password: Usuario.encriptar_password(usuario[:password])).count > 0
+  end
+
+  def self.crear_session(usuario)
+  	session[:usuario] = usuario
+  end
+
+  def self.expirar_session
+  	session[:usuario] = nil
   end
 
 end
