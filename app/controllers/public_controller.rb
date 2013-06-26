@@ -28,9 +28,10 @@ class PublicController < ApplicationController
     unless usuario
       flash[:error] = "Usuario no encontrado"
       redirect_to action: :index
+    else
+      Usuario.crear_session(session,usuario)
+      redirect_to controller: :buscar, action: :index
     end
-    Usuario.crear_session(session,usuario)
-    redirect_to controller: :buscar, action: :index
   end
 
   def logout
