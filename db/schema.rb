@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606004737) do
+ActiveRecord::Schema.define(:version => 20130626011733) do
+
+  create_table "ciudades", :force => true do |t|
+    t.integer "region_id"
+    t.string  "nombre"
+  end
+
+  add_index "ciudades", ["region_id"], :name => "index_ciudades_on_region_id"
+
+  create_table "comunas", :force => true do |t|
+    t.integer "provincia_id"
+    t.string  "codigo_ine",   :limit => 5
+    t.string  "nombre",       :limit => 100
+  end
 
   create_table "mascotas", :force => true do |t|
     t.string   "nombre"
@@ -25,12 +38,38 @@ ActiveRecord::Schema.define(:version => 20130606004737) do
     t.datetime "updated_at",               :null => false
   end
 
+  create_table "provincias", :force => true do |t|
+    t.integer "region_id"
+    t.string  "codigo_ine", :limit => 3
+    t.string  "nombre",     :limit => 100
+  end
+
   create_table "razas", :force => true do |t|
     t.string   "tipo",        :limit => 20
     t.string   "nombre",      :limit => 50
     t.string   "descripcion"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "regiones", :force => true do |t|
+    t.string  "codigo_ine", :limit => 2
+    t.integer "position"
+    t.string  "nombre",     :limit => 100
+  end
+
+  create_table "reportes", :force => true do |t|
+    t.string   "tipo"
+    t.integer  "usuario_id"
+    t.integer  "mascota_id"
+    t.integer  "comuna_id"
+    t.string   "estado"
+    t.date     "fecha"
+    t.boolean  "gmaps"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "usuarios", :force => true do |t|
