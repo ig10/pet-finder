@@ -1,0 +1,5 @@
+<div id="contenedor_buscar">
+  <%= form_for(:mascota, url:{action: "buscar"}, html: {class: "navbar-form pull-left"}) do |f| %>
+    <%= f.text_field :comuna_id %>
+  <% end %>
+</div>
