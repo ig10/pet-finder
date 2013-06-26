@@ -8,5 +8,7 @@ PetFinder::Application.routes.draw do
   match '/registro' => 'public#registro'
 
   match '/buscar' => 'buscar#index'
+  match '/buscar/nueva' => 'buscar#nueva'
+
 
 end
