@@ -18,7 +18,7 @@ class Usuario < ActiveRecord::Base
 
   def self.autenticar(usuario)
     self.where(correo_electronico: usuario[:correo_electronico],
-                password: self.encriptar_password(usuario[:password])).first.id
+                password: self.encriptar_password(usuario[:password])).first.try(:id)
   end
 
   def self.crear_session(sesion,usuario)
