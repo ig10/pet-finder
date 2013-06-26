@@ -1,0 +1,14 @@
+select{
+  width: 130px;
+  margin-right: 10px;
+  &.comunas{width: 220px;}
+  &.raza{width: 180px;}
+}
+
+button{
+  &.buscar{margin-top: 5px;}
+}
+
+#contenedor_buscar{
+  height: 38px;
+}

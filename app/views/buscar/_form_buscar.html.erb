@@ -1,0 +1,12 @@
+<div id="contenedor_buscar" class="well">
+  <%= form_for(:mascota, url:{action: "nueva"}, html: {class: "navbar-form pull-left"}) do |f| %>
+    <%= f.select :comuna_id, @comunas, {prompt: 'Seleccione Comuna'}, {class: "comunas"} %>
+    <%= f.select :tipo, ["Cualquiera","Perro","Gato","Ave","Caballo"], {prompt: 'Tipo'}, {class: "tipo"} %>
+    <%= f.select :raza_id, ["Cualquiera","Labrador","Silvestre","Pastor Alemán","Chiguagua"], {prompt: 'Raza'}, {class: "raza"} %>
+    <%= f.select :edad, ["Cualquiera","Bebe","Joven","Adulto","Mayor"], {prompt: 'Edad'}, {class: "edad"} %>
+    <%= f.select :genero, ["Cualquiera","Macho","Hembra","Desconocido"], {prompt: 'Género'}, {class: "genero"} %>
+    <button type="submit" class="btn btn-info buscar">
+      <i class="icon-search icon-white"></i>
+    </button>
+  <% end %>
+</div>
