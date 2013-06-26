@@ -11,7 +11,8 @@ body{
 }
 
 .secondary-container{
-  margin-top: 65px;
+  margin: 65px auto auto auto;
+  width: 960px;
 }
 
 #modal_registro{
@@ -91,4 +92,8 @@ h1 {
     width:152px;
     height:136px;
   }
+}
+
+.panel_busqueda{
+  padding-top: 50px;
 }
