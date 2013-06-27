@@ -9,8 +9,7 @@ class BuscarController < ApplicationController
   end
 
   def nueva
-    @reportes = Reporte.buscar(params[:reporte])
-
-    render partial: 'resultados', locals: @reportes
+    @reportes = Reporte.buscar(params[:reporte]).empty? ? "VACIO" : "CON ALGO"
+    render partial: 'resultados'
   end
 end
