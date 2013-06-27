@@ -3,8 +3,8 @@
 		<div class="row">
 			<div class="span6 offset3">
 				<h3>Registrar Mascota</h3>
-				<%= form_for(:mascota, url:{action: "new"}) do |f| %>
-			
+				<%= form_for(:mascota, url:{action: "new", method: 'POST'}) do |f| %>
+
 					<%= f.label :nombre %>
 					<%= f.text_field :nombre %>
 
@@ -25,4 +25,4 @@
 			</div>
 		</div>
 	</div>
-</div>   
+</div>
