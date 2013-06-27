@@ -1,8 +1,32 @@
 <div class="secondary-container">
-	<div class="well">
-	<button class="btn btn-primary">Crear Mascotas</button>
-	<div id="contenedor_mascotas" class="">
-    <%= render "mascota" %>
-  </div>
-  </div>
+	<div class="titulo center">
+		<h3>Listado de mascotas</h3>
+	</div>
+	<div class="contenedor-formulario-mascota well">
+		<div class="span6 primera_fila">
+			<%= form_for(:mascota, method: 'POST') do |f| %>
+
+				<%= f.label :nombre %>
+				<%= f.text_field :nombre %>
+
+				<%= label_tag "Selecciona la edad" %>
+				<%= f.select :edad, @edades, {prompt: 'Edad'}, {class: "edad"} %>
+
+				<%= label_tag "Selecciona el genero" %>
+			 	<%= f.select :genero, @generos, {prompt: 'Género'}, {class: "genero"} %>
+	 	</div>
+	 	<div class="span4 segunda_fila">
+			 	<%= label_tag "Selecciona la raza" %>
+			 	<%= f.select :raza_id, @razas, {prompt: 'Raza'}, {class: "raza"} %>
+
+			 	<%= label_tag "Seleccione el tamaño" %>
+			 	<%= f.select :tamano, @tamanos, {prompt: 'Tamaño'}, {class: "tamano"} %>
+			 
+			 	<%= f.hidden_field :usuario_id, value: session[:usuario_id]%>
+			 	<div>
+					<%= f.submit "Crear Mascota", class: "btn btn-large btn-primary " %>
+				</div>
+		</div>
+		<% end %>
+	</div>
 </div>
