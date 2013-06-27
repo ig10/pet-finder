@@ -6,7 +6,7 @@ class UsuarioController < ApplicationController
 	end
 
 	def update
-		@usuario = @usuario = Usuario.find(session[:usuario_id])
+		@usuario = Usuario.find(session[:usuario_id])
 		if @usuario.update_attributes(params[:usuario])
 			flash[:success] = "Perfil Actualizado"
 			redirect_to '/buscar'
