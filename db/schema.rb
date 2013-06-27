@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626235937) do
+ActiveRecord::Schema.define(:version => 20130627084216) do
 
   create_table "ciudades", :force => true do |t|
     t.integer "region_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130626235937) do
   create_table "mascotas", :force => true do |t|
     t.string   "nombre"
     t.integer  "raza_id"
+    t.integer  "usuario_id"
     t.string   "edad",       :limit => 30
     t.string   "color",      :limit => 50
     t.string   "genero",     :limit => 1
