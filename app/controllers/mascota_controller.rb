@@ -1,30 +1,27 @@
 class MascotaController < ApplicationController
 
-	def index
-		@session = session
-		@usuario =  Usuario.find(session[:usuario_id])
-	end
+  def index
+    @session = session
+    @usuario =  Usuario.find(session[:usuario_id])
+  end
 
-	def new
-		@mascota = Mascota.new
-	 	@clases = Raza::Clases
+  def new
+    @clases = Raza::Clases
     @razas = Raza.for_select
     @generos = Mascota::Generos
     @edades = Mascota::Edades
-	end
+    if request.post?
+      Mascota.create(params[:mascota])
+      redirect_to :index
+    else
+    end
+  end
 
-	def create
-		@mascota = Mascota.new(params[:mascota])
-		if @mascota.save
-			flass[:success] = "Mascota registrada"	
-		end
-	end
-		
-	def edit
-		
-	end
+  def edit
 
-	def update
-		
-	end
+  end
+
+  def update
+
+  end
 end
