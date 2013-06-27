@@ -5,7 +5,7 @@
     <%= f.select :raza_id, @razas, {prompt: 'Raza'}, {class: "raza"} %>
     <%= f.select :edad, @edades, {prompt: 'Edad'}, {class: "edad"} %>
     <%= f.select :genero, @generos, {prompt: 'Género'}, {class: "genero"} %>
-    <%= f.hidden_field :tipo, 'perdida' %>
+    <%= f.hidden_field :tipo, value: 'perdida' %>
     <button type="submit" class="btn btn-info buscar">
       <i class="icon-search icon-white"></i>
     </button>
