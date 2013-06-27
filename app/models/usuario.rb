@@ -5,7 +5,7 @@ class Usuario < ActiveRecord::Base
   has_many :reporte
   belongs_to :comuna
 
-  attr_accessible :correo_electronico, :password, :perfil, :nombre, :apellido_paterno, 
+  attr_accessible :correo_electronico, :password, :perfil, :nombre, :apellido_paterno,
                   :apellido_materno, :direccion, :genero, :telefono_fijo, :telefono_movil
 
   validates_presence_of :correo_electronico, message: "Requerido"
@@ -38,5 +38,8 @@ class Usuario < ActiveRecord::Base
     session[:usuario_perfil] = nil
   end
 
+  def nombre_completo
+    "#{self.nombre.try(:titleize)} #{self.apellido_paterno.try(:titleize)} #{self.apellido_materno.try(:titleize)}"
+  end
 end
 
