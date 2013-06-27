@@ -1,11 +1,16 @@
 class BuscarController < ApplicationController
   def index
     @session = session
+    @usuario =  Usuario.find(session[:usuario_id])
     @comunas = Comuna.for_select
-    usuario =  Usuario.find(session[:usuario_id])
-    @usuario = (usuario.nombre.blank? ? usuario.correo_electronico.split("@").first : usuario.nombre) 
+    @clases = Raza::Clases
+    @razas = Raza.for_select
+    @generos = Mascota::Generos
+    @edades = Mascota::Edades
   end
 
   def nueva
+    @reportes = Reporte.buscar(params[:reporte]).empty? ? "VACIO" : "CON ALGO"
+    render partial: 'resultados'
   end
 end

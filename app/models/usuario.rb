@@ -1,12 +1,18 @@
 require 'digest/sha1'
 class Usuario < ActiveRecord::Base
-  attr_accessible :correo_electronico, :password, :perfil
+
+  has_many :mascota
+  has_many :reporte
+  belongs_to :comuna
+
+  attr_accessible :correo_electronico, :password, :perfil, :nombre, :apellido_paterno, 
+                  :apellido_materno, :direccion, :genero, :telefono_fijo, :telefono_movil
 
   validates_presence_of :correo_electronico, message: "Requerido"
   validates :password, presence: true, length: {minimum: 5}, on: :create
   validates_uniqueness_of :correo_electronico
 
-  before_save :formatear_password, if: Proc.new{|p| p.correo_electronico.present?}
+  before_create :formatear_password, if: Proc.new{|p| p.correo_electronico.present?}
 
   def formatear_password
     self.password = Usuario.encriptar_password(self.password)
