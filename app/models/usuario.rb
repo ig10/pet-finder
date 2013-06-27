@@ -1,5 +1,9 @@
 require 'digest/sha1'
 class Usuario < ActiveRecord::Base
+  has_many :mascota
+  has_many :reporte
+  belongs_to :comuna
+
   attr_accessible :correo_electronico, :password, :perfil
 
   validates_presence_of :correo_electronico, message: "Requerido"
