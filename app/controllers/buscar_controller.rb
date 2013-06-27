@@ -3,13 +3,7 @@ class BuscarController < ApplicationController
     @session = session
     @comunas = Comuna.for_select
     usuario =  Usuario.find(session[:usuario_id])
-	  if usuario.nombre.blank?
-	    cortado=usuario.correo_electronico
-	    cortado=cortado.split("@")
-      	    @usuario = cortado[0]
-	  else
-	    @usuario = usuario.nombre
-	  end
+    @usuario = (usuario.nombre.blank? ? usuario.correo_electronico.split("@").first : usuario.nombre) 
   end
 
   def nueva
