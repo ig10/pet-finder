@@ -1,10 +1,11 @@
 <div id="contenedor_buscar" class="well">
-  <%= form_for(:mascota, url:{action: "nueva"}, html: {id: "buscar_mascota", class: "navbar-form pull-left", method: 'POST'}) do |f| %>
+  <%= form_for(:reporte, url:{action: "nueva"}, html: {id: "buscar_mascota", class: "navbar-form pull-left", method: 'POST'}) do |f| %>
     <%= f.select :comuna_id, @comunas, {prompt: 'Seleccione Comuna'}, {class: "comunas"} %>
-    <%= f.select :tipo, @tipos, {prompt: 'Tipo'}, {class: "tipo"} %>
+    <%= f.select :clase, @clases, {prompt: 'Tipo'}, {class: "tipo"} %>
     <%= f.select :raza_id, @razas, {prompt: 'Raza'}, {class: "raza"} %>
     <%= f.select :edad, @edades, {prompt: 'Edad'}, {class: "edad"} %>
     <%= f.select :genero, @generos, {prompt: 'Género'}, {class: "genero"} %>
+    <%= f.hidden_field :tipo, 'perdida' %>
     <button type="submit" class="btn btn-info buscar">
       <i class="icon-search icon-white"></i>
     </button>
