@@ -13,7 +13,6 @@ class MascotaController < ApplicationController
       Mascota.create(params[:mascota])
       redirect_to :index
     else
-      redirect_to :index
     end
   end
 
