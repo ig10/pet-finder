@@ -6,7 +6,7 @@ class Mascota < ActiveRecord::Base
   attr_accessible :nombre, :color, :edad, :genero, :tamano, :estado, :raza_id, :clase
   delegate :clase, to: :raza
 
-  Generos = [["Macho","macho"],["Hembra","hembra"],["Desconocido","desconocido"]]
-  Edades = [["Bebe","bebe"],["Joven","joven"],["Adulto","adulto"],["Mayor","mayor"]]
+  Generos = [["Macho","m"],["Hembra","h"],["Desconocido","d"]]
+  Edades = [["Cachorro","cachorro"],["Joven","joven"],["Adulto","adulto"],["Mayor","mayor"]]
 
 end
