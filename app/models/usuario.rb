@@ -1,12 +1,18 @@
 require 'digest/sha1'
 class Usuario < ActiveRecord::Base
-  attr_accessible :correo_electronico, :password, :perfil
+
+  has_many :mascota
+  has_many :reporte
+  belongs_to :comuna
+
+  attr_accessible :correo_electronico, :password, :perfil, :nombre, :apellido_paterno,
+                  :apellido_materno, :direccion, :genero, :telefono_fijo, :telefono_movil
 
   validates_presence_of :correo_electronico, message: "Requerido"
   validates :password, presence: true, length: {minimum: 5}, on: :create
   validates_uniqueness_of :correo_electronico
 
-  before_save :formatear_password, if: Proc.new{|p| p.correo_electronico.present?}
+  before_create :formatear_password, if: Proc.new{|p| p.correo_electronico.present?}
 
   def formatear_password
     self.password = Usuario.encriptar_password(self.password)
@@ -18,7 +24,7 @@ class Usuario < ActiveRecord::Base
 
   def self.autenticar(usuario)
     self.where(correo_electronico: usuario[:correo_electronico],
-                password: self.encriptar_password(usuario[:password])).first.id
+                password: self.encriptar_password(usuario[:password])).first.try(:id)
   end
 
   def self.crear_session(sesion,usuario)
@@ -32,5 +38,8 @@ class Usuario < ActiveRecord::Base
     session[:usuario_perfil] = nil
   end
 
+  def nombre_completo
+    "#{self.nombre.try(:titleize)} #{self.apellido_paterno.try(:titleize)} #{self.apellido_materno.try(:titleize)}"
+  end
 end
 

@@ -1,8 +1,42 @@
-<div style="margin-top: 100px;">
-  <h2><%= @session[:usuario_id] %></h2>
-  <h2><%= @session[:usuario_perfil] %></h2>
+<div class="secondary-container">
+  <div class="panel_busqueda">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#buscar" data-toggle="tab">Buscar</a></li>
+      <li><a href="#adoptar" data-toggle="tab">Adoptar</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportar mascota<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#dropdown1" data-toggle="tab">Perdida</a></li>
+          <li><a href="#dropdown2" data-toggle="tab">Encontrada</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="buscar">
+        <%= render 'form_buscar' %>
+      </div>
+      <div class="tab-pane" id="adoptar">ADOPTAR</div>
+      <div class="tab-pane fade" id="dropdown1">
+        <p>PERDIDA</p>
+      </div>
+      <div class="tab-pane fade" id="dropdown2">
+        <p>ENCONTRADA</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultados" class="well">
+    <%= render "resultados" %>
+  </div>
+
 </div>
 
+<script>
+  $j(function () {
+    Buscar.init();
+  })
+</script>
 
 
 

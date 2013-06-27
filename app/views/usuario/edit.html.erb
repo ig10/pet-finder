@@ -1,0 +1,57 @@
+<div class="secondary-container">
+
+  <div class="actualizar_perfil">
+    <div class="titulo center">
+      <h3>Actualizar perfil</h3>
+    </div>
+
+    <div class="contenedor-formulario well">
+      <div class="span6 primera_fila">
+        <%= form_for(@usuario) do |f| %>
+
+          <%= f.label :nombre %>
+          <%= f.text_field :nombre %>
+
+          <%= f.label :apellido_paterno %>
+          <%= f.text_field :apellido_paterno %>
+
+          <%= f.label :apellido_materno %>
+          <%= f.text_field :apellido_materno %>
+
+          <%= f.label :correo_electronico %>
+          <%= f.text_field :correo_electronico %>
+      </div>
+      <div class="span4 segunda_fila">
+          <%= f.label :direccion %>
+          <%= f.text_field :direccion %>
+
+          <%= f.label :genero %>
+          <%= f.text_field :genero %>
+
+          <%= f.label :telefono_fijo %>
+          <%= f.text_field :telefono_fijo %>
+
+          <%= f.label :telefono_movil %>
+          <%= f.text_field :telefono_movil %>
+
+          <div class="botones">
+            <%= link_to "Volver", url_for(controller: "/buscar", action: "index"), {class: "btn btn-large btn-info pull-left"} %>
+            <%= f.submit "Guardar", class: "btn btn-large btn-primary pull-right" %>
+          </div>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="well paypal center">
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="QKFL93PLMEZEE">
+      <input type="image" src="https://www.sandbox.paypal.com/es_XC/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, la forma más segura y rápida de pagar en línea.">
+      <img alt="" border="0" src="https://www.sandbox.paypal.com/es_XC/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </div>
+
+
+</div>
