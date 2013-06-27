@@ -1,3 +1,20 @@
+ <% if @reporte.blank?  %>
+<div> sin datos </div>
+  <% else %>
 <div>
-  <%= @reportes %>
+  <% @reportes.each do |reporte| %>
+     <p>nombre mascota <%= reporte.mascota.nombre %></p>
+     <p>color <%= reporte.mascota.color %></p>
+     <p>edad <%= reporte.mascota.edad %></p>
+     <p>genero <%= reporte.mascota.genero %></p>
+     <p>tamano <%= reporte.mascota.tamano %></p>
+     <p>estado <%= reporte.mascota.estado %></p>
+	
+     <p>comuna<%= reporte.comuna.nombre %></p>
+     <p>usuario nombre completo <%= reporte.usuario.nombre %> <%= reporte.usuario.apellido_paterno %> 
+	<%= reporte.usuario.apellido_materno %></p>
+
+     
+  <% end %>
 </div>
+ <% end %>
