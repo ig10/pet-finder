@@ -2,14 +2,15 @@ class BuscarController < ApplicationController
   def index
     @session = session
     @comunas = Comuna.for_select
-    @tipos = Raza::Tipos
+    @clases = Raza::Clases
     @razas = Raza.for_select
     @generos = Mascota::Generos
     @edades = Mascota::Edades
   end
 
   def nueva
-    @mascotas = Mascota.where(params[:mascota])
-    render partial: 'resultados', locals: @mascotas
+    @reportes = Reporte.buscar(params[:reporte])
+
+    render partial: 'resultados', locals: @reportes
   end
 end
