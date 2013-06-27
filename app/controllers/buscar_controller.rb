@@ -10,8 +10,9 @@ class BuscarController < ApplicationController
   end
 
   def nueva
-    @reportes=Reporte.buscar(params[:reporte])
+    @reportes = Reporte.buscar(params[:reporte])
+
     render partial: 'resultados'
   end
-  
+
 end
