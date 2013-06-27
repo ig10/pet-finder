@@ -1,5 +1,10 @@
 require 'digest/sha1'
 class Usuario < ActiveRecord::Base
+
+  has_many :mascota
+  has_many :reporte
+  belongs_to :comuna
+
   attr_accessible :correo_electronico, :password, :perfil, :nombre, :apellido_paterno, 
                   :apellido_materno, :direccion, :genero, :telefono_fijo, :telefono_movil
 
