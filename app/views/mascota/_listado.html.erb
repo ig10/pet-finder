@@ -1,0 +1,26 @@
+<% if @mascotas.blank?  %>
+  <div> Sin Datos </div>
+<% else %>
+  <div class="row-fluid">
+    <div class="thumbnails">
+      <% @mascotas.each do |mascota| %>
+        <li class="span4">
+          <div class="thumbnail detalle_mascota">
+            <img data-src="" alt="300x200" style="width: 300px; height: 200px;" src="">
+            <div class="caption">
+              <h3><%= formatear_campo(mascota.nombre) %></h3>
+              <p><b>Dueño:</b> <%= formatear_campo(mascota.usuario.nombre_completo) %></p>
+              <p><b>Edad:</b> <%= formatear_campo(mascota.edad) %></p>
+              <p><b>Tamaño:</b> <%= formatear_campo(mascota.tamano) %></p>
+              <p><b>Genero:</b> <%= formatear_campo(mascota.genero) %></p>
+              <p><b>Color:</b> <%= formatear_campo(mascota.color) %></p>
+              <p><b>Comuna:</b> <%= formatear_campo(mascota.usuario.comuna.try(:nombre)) %></p>
+              <p><b>Estado:</b> <%= formatear_campo(mascota.estado) %></p>
+              <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a></p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </div>
+  </div>
+<% end %>

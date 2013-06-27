@@ -3,6 +3,7 @@ class MascotaController < ApplicationController
   def index
     @session = session
     @usuario =  Usuario.find(session[:usuario_id])
+    @mascotas = Mascota.de_usuario(@usuario.id)
 
     @clases = Raza::Clases
     @razas = Raza.for_select

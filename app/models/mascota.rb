@@ -10,4 +10,6 @@ class Mascota < ActiveRecord::Base
   Generos = [["Macho","m"],["Hembra","h"],["Desconocido","d"]]
   Edades = [["Cachorro","cachorro"],["Joven","joven"],["Adulto","adulto"],["Mayor","mayor"]]
   Tamanos = [["Pequeño","pequeno"],["Mediano", "mediano"], ["Grande","grande"]]
+
+  scope :de_usuario, lambda{|usuario| where(usuario_id: usuario) unless usuario.blank? }
 end
