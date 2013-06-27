@@ -1,20 +1,29 @@
- <% if @reporte.blank?  %>
-<div> sin datos </div>
-  <% else %>
-<div>
-  <% @reportes.each do |reporte| %>
-     <p>nombre mascota <%= reporte.mascota.nombre %></p>
-     <p>color <%= reporte.mascota.color %></p>
-     <p>edad <%= reporte.mascota.edad %></p>
-     <p>genero <%= reporte.mascota.genero %></p>
-     <p>tamano <%= reporte.mascota.tamano %></p>
-     <p>estado <%= reporte.mascota.estado %></p>
-	
-     <p>comuna<%= reporte.comuna.nombre %></p>
-     <p>usuario nombre completo <%= reporte.usuario.nombre %> <%= reporte.usuario.apellido_paterno %> 
-	<%= reporte.usuario.apellido_materno %></p>
+<% if @reportes.blank?  %>
+  <div> Sin Datos </div>
+<% else %>
+  <div class="row-fluid">
+    <div class="thumbnails">
+      <% @reportes.each do |reporte| %>
+        <li class="span4">
+          <div class="thumbnail detalle_mascota">
+            <img data-src="" alt="300x200" style="width: 300px; height: 200px;" src="">
+            <div class="caption">
+              <h3><%= formatear_campo(reporte.mascota.nombre) %></h3>
+              <p><b>Dueño:</b> <%= formatear_campo(reporte.usuario.nombre_completo) %></p>
+              <p><b>Edad:</b> <%= formatear_campo(reporte.mascota.edad) %></p>
+              <p><b>Tamaño:</b> <%= formatear_campo(reporte.mascota.tamano) %></p>
+              <p><b>Genero:</b> <%= formatear_campo(reporte.mascota.genero) %></p>
+              <p><b>Color:</b> <%= formatear_campo(reporte.mascota.color) %></p>
+              <p><b>Comuna:</b> <%= formatear_campo(reporte.comuna.nombre) %></p>
+              <p><b>Estado:</b> <%= formatear_campo(reporte.mascota.estado) %></p>
+              <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a></p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
-     
-  <% end %>
-</div>
- <% end %>
+
+
