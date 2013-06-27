@@ -1,0 +1,28 @@
+<div class="secondary-container">
+	<div class="well">
+		<div class="row">
+			<div class="span6 offset3">
+				<h3>Registrar Mascota</h3>
+				<%= form_for(:mascota, url:{action: "new"}) do |f| %>
+			
+					<%= f.label :nombre %>
+					<%= f.text_field :nombre %>
+
+    			<%= label_tag "Selecciona la edad" %>
+  				<%= f.select :edad, @edades, {prompt: 'Edad'}, {class: "edad"} %>
+
+  				<%= label_tag "Selecciona el genero" %>
+   			 	<%= f.select :genero, @generos, {prompt: 'Género'}, {class: "genero"} %>
+
+   			 	<%= label_tag "Selecciona el tipo" %>
+   			 	<%= f.select :clase, @clases, {prompt: 'Tipo'}, {class: "tipo"} %>
+
+   			 	<%= label_tag "Selecciona la raza" %>
+   			 	<%= f.select :raza_id, @razas, {prompt: 'Raza'}, {class: "raza"} %>
+
+					<%= f.submit "Crear Mascota", class: "btn btn-large btn-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>   
