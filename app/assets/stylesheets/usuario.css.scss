@@ -1,7 +1,29 @@
-// Place all the styles related to the Usuario controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .center{
-	text-align: center
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+
+.contenedor-formulario{
+  height: 360px;
+}
+
+.primera_fila{
+  margin-left: 80px;
+  width: 500px;
+}
+.segunda_fila{
+  width: 220px;
+}
+
+.paypal{
+  form{
+    margin: 0;
+  }
+}
+.botones{
+  border-top: 1px solid #DDDDDD;
+  margin-top: 25px;
+  padding-top: 25px;
+  width: 740px;
+  float: right;
 }
