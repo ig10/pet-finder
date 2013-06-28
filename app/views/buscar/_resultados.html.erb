@@ -14,7 +14,7 @@
               <p><b>Tamaño:</b> <%= formatear_campo(reporte.mascota.tamano) %></p>
               <p><b>Genero:</b> <%= formatear_campo(reporte.mascota.genero) %></p>
               <p><b>Color:</b> <%= formatear_campo(reporte.mascota.color) %></p>
-              <p><b>Comuna:</b> <%= formatear_campo(reporte.comuna.nombre) %></p>
+              <p><b>Comuna:</b> <%= formatear_campo(reporte.comuna.try(:nombre)) %></p>
               <p><b>Estado:</b> <%= formatear_campo(reporte.mascota.estado) %></p>
               <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a></p>
             </div>
