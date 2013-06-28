@@ -16,7 +16,7 @@ class Reporte < ActiveRecord::Base
   scope :de_comuna, lambda{|comuna| where(comuna_id: comuna) unless comuna.blank?}
   scope :de_raza, lambda{|raza| where(raza_id: raza) unless raza.blank? }
   scope :de_edad, lambda{|edad| joins(:mascota).where("mascotas.edad = ?", edad) unless edad.blank?}
-  scope :de_genero, lambda{|genero| includes(:mascota).where(genero: genero) unless genero.blank? }
+  scope :de_genero, lambda{|genero| joins(:mascota).where("mascotas.genero = ?", genero) unless genero.blank? }
 
   def self.buscar(params)
     self.
