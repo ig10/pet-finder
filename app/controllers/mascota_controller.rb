@@ -17,4 +17,28 @@ class MascotaController < ApplicationController
     end
   end
 
+  def reportar
+    if request.post?
+      mascota = Mascota.find(params[:mascota_id])
+      unless mascota.nil?
+        reporte = Reporte.new
+        reporte.tipo = 'perdida'
+        reporte.usuario_id = mascota.usuario.id
+        reporte.mascota_id = mascota.id
+        reporte.comuna_id = mascota.usuario.comuna_id
+        reporte.estado = 'activo'
+        reporte.fecha = Time.now
+        if reporte.save
+          render text: "OK"
+        else
+          render text: "ERROR GUARDAR"
+        end
+      else
+        render text: "NO MASCOTA"
+      end
+    else
+      redirect_to action: :index
+    end
+  end
+
 end
