@@ -14,4 +14,5 @@ PetFinder::Application.routes.draw do
   match '/perfil/:id' => 'usuario#update', :as => :usuario
 
   match '/mascota' => 'mascota#index'
+  match '/reportar' => 'mascota#reportar'
 end
