@@ -4,7 +4,7 @@
   <div class="row-fluid">
     <div class="thumbnails">
       <% @mascotas.each do |mascota| %>
-        <li class="span4">
+        <li class="span4 listar_mascota">
           <div class="thumbnail detalle_mascota">
             <img data-src="" alt="300x200" style="width: 300px; height: 200px;" src="">
             <div class="caption">
@@ -16,7 +16,10 @@
               <p><b>Color:</b> <%= formatear_campo(mascota.color) %></p>
               <p><b>Comuna:</b> <%= formatear_campo(mascota.usuario.comuna.try(:nombre)) %></p>
               <p><b>Estado:</b> <%= formatear_campo(mascota.estado) %></p>
-              <p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a></p>
+              <p><a href="#" class="btn btn-primary">Actualizar</a>
+                 <a id="reportar" href="/reportar" data-mascota-id="<%= mascota.id %>" class="btn"><i class='icon-bullhorn'></i> Reportar</a>
+                 <a href="#" class="btn btn-danger">Eliminar</a>
+              </p>
             </div>
           </div>
         </li>
