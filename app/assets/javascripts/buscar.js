@@ -12,7 +12,6 @@ var Buscar = (function(){
     var resultados = $j('#resultados');
 
     form.on('submit',function(e){
-      console.log("ENTRE");
       e.preventDefault();
       $j.ajax({
         url: form.attr('action'),
