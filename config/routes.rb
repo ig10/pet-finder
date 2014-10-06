@@ -8,5 +8,11 @@ PetFinder::Application.routes.draw do
   match '/registro' => 'public#registro'
 
   match '/buscar' => 'buscar#index'
+  match '/buscar/nueva' => 'buscar#nueva'
 
+  match '/perfil' => 'usuario#edit'
+  match '/perfil/:id' => 'usuario#update', :as => :usuario
+
+  match '/mascota' => 'mascota#index'
+  match '/reportar' => 'mascota#reportar'
 end

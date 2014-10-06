@@ -18,4 +18,9 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'usuario', 'usuarios'
   inflect.irregular 'raza', 'razas'
   inflect.irregular 'mascota', 'mascotas'
+  inflect.irregular 'reporte', 'reportes'
+  inflect.irregular 'region', 'regiones'
+  inflect.irregular 'provincia', 'provincias'
+  inflect.irregular 'comuna', 'comunas'
+  inflect.irregular 'ciudad', 'ciudades'
 end

@@ -6,7 +6,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand scroller" data-section="html" href="index.html">PetFinder</a>
+      <a class="brand scroller" data-section="html" href="index.html">
+        <%= image_tag('logo.png', id:"logo") %> PetFinder
+      </a>
       <div class="nav-collapse collapse">
         <% unless @session %>
           <ul class="nav pull-right">
@@ -15,14 +17,14 @@
         <% else %>
           <ul class="nav pull-right" role="navigation">
             <li class="dropdown">
-              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Ignacio Diez <b class="caret"></b></a>
+              <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-home icon-black"></i> <%= nombre_usuario(@usuario) %><b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Perfil</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mis mensajes (1)</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mis mascotas</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/perfil"><i class="icon-user icon-black"></i> Perfil</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="icon-envelope"></i> Mis mensajes (1)</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/mascota"><i class="icon-leaf"></i> Mis mascotas</a></li>
                 <li role="presentation" class="divider"></li>
 
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Cerrar Sesión</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout"><i class="icon-off"></i> Cerrar Sesión</a></li>
               </ul>
             </li>
           </ul>

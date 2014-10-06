@@ -2,9 +2,17 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:300");
 
 body{
+  font-family: 'Open Sans',sans-serif;
+}
+
+.main-container{
   background: url('backgrounds/home.jpg') #000 top center fixed no-repeat;
   background-size: 120%;
-  font-family: 'Open Sans',sans-serif;
+}
+
+.secondary-container{
+  margin: 65px auto auto auto;
+  width: 960px;
 }
 
 #modal_registro{
@@ -33,10 +41,10 @@ h1 {
 }
 
 #intro{
-  margin-top: 100px;
+  margin-top: 60px;
   text-align: center;
   min-height: 400px;
-  padding: 0 0 50px;
+  padding: 40px 0 50px;
   h1{
     color: #fff;
     font-family: 'Open Sans',sans-serif;
@@ -84,4 +92,14 @@ h1 {
     width:152px;
     height:136px;
   }
+}
+
+.panel_busqueda{
+  padding-top: 50px;
+}
+
+.fondo_transparente{
+  background: rgba(0,0,0,0.5);
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
